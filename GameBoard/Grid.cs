@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TicTacToe.Game;
@@ -59,6 +60,19 @@ namespace TicTacToe.Board
                 this._ruleses.Validate(GameStatus.Instance.CurrentPlayer.OccupiedPositions))
             {
                 GameStatus.Instance.Finished = true;
+            }
+        }
+
+        public void Draw()
+        {
+            var rows = Cordinates.GroupBy(g => g.X);
+            foreach (var row in rows)
+            {
+                foreach (var cordinate in row.Select(c => c))
+                {
+                    Console.Write($"{cordinate.Symbol} ");
+                }
+                Console.WriteLine();
             }
         }
     }

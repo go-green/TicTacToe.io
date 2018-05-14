@@ -19,15 +19,15 @@ namespace TicTacToe.Board
 
         public void Draw()
         {
-            var rows = _grid.Cordinates.GroupBy(g => g.X);
-            foreach (var row in rows)
+            try
             {
-                foreach (var cordinate in row.Select(c => c))
-                {
-                    Console.Write($"{cordinate.Symbol} ");
-                }
-                Console.WriteLine();
+                _grid.Draw();
             }
+            catch (Exception e)
+            {
+                logger.Error(e.StackTrace);
+            }
+           
         }
 
         public void Update(ICordinate cords)
