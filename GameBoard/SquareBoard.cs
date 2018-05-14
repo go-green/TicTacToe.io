@@ -9,8 +9,6 @@ namespace TicTacToe.Board
     {
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private readonly Grid _grid;
-        private readonly int _height;
-        private readonly int _length;
 
         public SquareBoard()
         {

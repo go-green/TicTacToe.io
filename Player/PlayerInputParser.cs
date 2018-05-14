@@ -15,7 +15,7 @@ namespace TicTacToe.Player
         private readonly MoveResult _moveResult;
         private readonly Grid _grid;
         private readonly string _inputString;
-        
+
         public PlayerInputParser(string inputstring)
         {
             this._playerInput = inputstring;
