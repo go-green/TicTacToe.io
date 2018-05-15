@@ -2,7 +2,7 @@
 
 namespace TicTacToeGame.GameBoard
 {
-    interface IGameBoard
+    internal interface IGameBoard
     {
         void Draw();
         void Update(Cordinate cords);

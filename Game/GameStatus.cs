@@ -1,18 +1,14 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TicTacToe.Board;
 using TicTacToe.Player;
-using TicTacToeGame.GameBoard;
 
 namespace TicTacToe.Game
 {
     /// <summary>
-    /// Singleton class to hold the current status of the game
+    ///     Singleton class to hold the current status of the game
     /// </summary>
     public class GameStatus
     {
-        private static readonly GameStatus instance = new GameStatus();
-
         static GameStatus()
         {
         }
@@ -21,13 +17,7 @@ namespace TicTacToe.Game
         {
         }
 
-        public static GameStatus Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static GameStatus Instance { get; } = new GameStatus();
 
         public IPlayer CurrentPlayer { get; set; }
 

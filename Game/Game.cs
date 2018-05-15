@@ -9,27 +9,16 @@ namespace TicTacToe.Game
 {
     public class Game : IGame
     {
-        private GameStatus _gameStatus;
-        private IGameBoard _gameBoard;
         public const char DOT = '*';
+        private IGameBoard _gameBoard;
+        private GameStatus _gameStatus;
 
         public void Start()
         {
             InitilizeGameStatus();
             MessageWriter.Greet();
-            this._gameBoard.Draw();
+            _gameBoard.Draw();
             Play();
-        }
-
-        private void InitilizeGameStatus()
-        {
-            this._gameStatus = GameStatus.Instance;
-            this._gameStatus.Players = PlayerHelper.InitializePlayers();
-            this._gameStatus.CurrentPlayer = this._gameStatus.Players.FirstOrDefault();
-            this._gameStatus.Finished = false;
-            this._gameStatus.Grid =
-                new Grid(BoardHelper.InitializeGrid(Constants.GRID_HEIGHT, Constants.GRID_WIDTH, DOT));
-            this._gameBoard = new SquareBoard();
         }
 
         public void Stop()
@@ -39,9 +28,9 @@ namespace TicTacToe.Game
 
         public void Play()
         {
-            var playerInput = this._gameStatus.CurrentPlayer.Move();
+            var playerInput = _gameStatus.CurrentPlayer.Move();
 
-            while (!this._gameStatus.Finished)
+            while (!_gameStatus.Finished)
             {
                 var result = new PlayerInputParser(playerInput).Parse();
 
@@ -52,11 +41,11 @@ namespace TicTacToe.Game
                         break;
 
                     case LastMoveStatus.Accepted:
-                        this._gameBoard.Update(result.Cordinate);
-                        this._gameBoard.Scan();
+                        _gameBoard.Update(result.Cordinate);
+                        _gameBoard.Scan();
                         FinishTheGame();
                         MessageWriter.WriteToConsole(result.Message);
-                        this._gameBoard.Draw();
+                        _gameBoard.Draw();
                         SwitchPlayer();
                         break;
 
@@ -73,27 +62,40 @@ namespace TicTacToe.Game
                         break;
                 }
 
-                playerInput = this._gameStatus.CurrentPlayer.Move();
+                playerInput = _gameStatus.CurrentPlayer.Move();
             }
+        }
+
+        private void InitilizeGameStatus()
+        {
+            _gameStatus = GameStatus.Instance;
+            _gameStatus.Players = PlayerHelper.InitializePlayers();
+            _gameStatus.CurrentPlayer = _gameStatus.Players.FirstOrDefault();
+            _gameStatus.Finished = false;
+            _gameStatus.Grid =
+                new Grid(BoardHelper.InitializeGrid(Constants.GRID_HEIGHT, Constants.GRID_WIDTH, DOT));
+            _gameBoard = new SquareBoard();
         }
 
         private void FinishTheGame()
         {
-            if (this._gameStatus.Finished)
+            if (_gameStatus.Finished)
             {
                 MessageWriter.WriteToConsole(Constants.YOUWON);
                 StopAndClose();
+                return;
             }
-            if (this._gameStatus.Draw)
+
+            if (_gameStatus.Draw)
             {
                 MessageWriter.WriteToConsole(Constants.ALLPOSITIONSOCCUPIED);
                 StopAndClose();
-            }        
+            }
         }
 
         private void StopAndClose()
         {
-            this._gameBoard.Draw();
+            _gameBoard.Draw();
             Console.ReadLine();
             Stop();
         }

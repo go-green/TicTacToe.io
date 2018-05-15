@@ -1,21 +1,22 @@
 ﻿namespace TicTacToe.Board
 {
-    public class Cordinate 
+    public class Cordinate
     {
         public Cordinate()
         {
-            
         }
+
         public Cordinate(int x, int y)
         {
-            this.X = x;
-            this.Y = y;
+            X = x;
+            Y = y;
         }
+
         public Cordinate(int x, int y, char symbol)
         {
-            this.X = x;
-            this.Y = y;
-            this.Symbol = symbol;
+            X = x;
+            Y = y;
+            Symbol = symbol;
         }
 
         public int X { set; get; }

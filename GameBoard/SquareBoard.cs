@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using NLog;
 using TicTacToe.Game;
 using TicTacToeGame.GameBoard;
 
@@ -7,12 +7,12 @@ namespace TicTacToe.Board
 {
     public class SquareBoard : IGameBoard
     {
-        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly Grid _grid;
 
         public SquareBoard()
         {
-            this._grid = GameStatus.Instance.Grid;
+            _grid = GameStatus.Instance.Grid;
         }
 
         public void Draw()
@@ -25,7 +25,6 @@ namespace TicTacToe.Board
             {
                 logger.Error(e.StackTrace);
             }
-           
         }
 
         public void Update(Cordinate cords)
@@ -56,7 +55,6 @@ namespace TicTacToe.Board
             {
                 logger.Error(e.StackTrace);
             }
-
         }
     }
 }

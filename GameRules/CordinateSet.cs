@@ -1,7 +1,4 @@
-﻿
-using System.Collections.Generic;
-using TicTacToeGame.GameBoard;
-using System.Linq;
+﻿using System.Collections.Generic;
 using TicTacToe.Board;
 
 namespace TicTacToe.Rules
@@ -12,7 +9,7 @@ namespace TicTacToe.Rules
 
         public CordinateSet()
         {
-            this._line = new List<Cordinate>();
+            _line = new List<Cordinate>();
         }
 
         public void Set(Cordinate cords)

@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TicTacToe.Board;
 
 namespace TicTacToe.Rule

@@ -1,19 +1,20 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NLog;
 using TicTacToe.Board;
 using TicTacToeGame.Game;
 
 namespace TicTacToe.Rules
 {
     /// <summary>
-    /// Class to generate winning cordinate sets for squares
-    /// Logic to get the diagonals only works for squares and not for rectangles
+    ///     Class to generate winning cordinate sets for squares
+    ///     Logic to get the diagonals only works for squares and not for rectangles
     /// </summary>
     public class SquareWinningCordinateSetGenerator
     {
-        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
         public IEnumerable<CordinateSet> GetWinningCordinateSetPermutations()
         {
             var lines = new List<CordinateSet>();
@@ -28,6 +29,7 @@ namespace TicTacToe.Rules
             {
                 logger.Error(e.StackTrace);
             }
+
             return lines;
         }
 
@@ -35,8 +37,6 @@ namespace TicTacToe.Rules
         public IEnumerable<CordinateSet> GetRowCordinateSets()
         {
             return Enumerable.Range(1, Constants.GRID_WIDTH).Select(rowNumber => GetRowCordinates(rowNumber));
-
-
         }
 
         public IEnumerable<CordinateSet> GetColumnCordinateSets()
@@ -56,6 +56,7 @@ namespace TicTacToe.Rules
                 };
                 winningCordinates.Set(cords);
             }
+
             return winningCordinates;
         }
 
@@ -72,11 +73,12 @@ namespace TicTacToe.Rules
                     };
                 winningCordinates.Set(cords);
             }
+
             return winningCordinates;
         }
 
         /// <summary>
-        /// Get the rows and select the cordinates that make a backward(\) diagonal
+        ///     Get the rows and select the cordinates that make a backward(\) diagonal
         /// </summary>
         /// <returns></returns>
         public CordinateSet GetLeftDiagonal()
@@ -89,12 +91,13 @@ namespace TicTacToe.Rules
                 rowCounter++;
                 winningCordinates.Set(cords);
             }
+
             return winningCordinates;
         }
 
 
         /// <summary>
-        /// Get the rows and select the cordinates that make a forward(/) diagonal
+        ///     Get the rows and select the cordinates that make a forward(/) diagonal
         /// </summary>
         /// <returns></returns>
         public CordinateSet GetRightDiagonal()
@@ -107,6 +110,7 @@ namespace TicTacToe.Rules
                 rowCounter--;
                 winningCordinates.Set(cords);
             }
+
             return winningCordinates;
         }
     }

@@ -1,9 +1,7 @@
-﻿
-
-namespace TicTacToeGame.Game
+﻿namespace TicTacToeGame.Game
 {
     public static class Constants
-    {    
+    {
         public const int GRID_HEIGHT = 3;
         public const int GRID_WIDTH = 3;
         public const string CURRENTBOARD = "Here's the current board:";
