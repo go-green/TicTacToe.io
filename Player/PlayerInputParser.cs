@@ -36,7 +36,7 @@ namespace TicTacToe.Player
         {
             return _playerInputValidationRules
                 .OrderBy(x => x.RuleID)
-                .Select(x => x.Validate(_playerInput))
+                .Select(x => x.Validate())
                 .FirstOrDefault(x => x.Status != LastMoveStatus.NoPlay);
         }
     }

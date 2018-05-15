@@ -54,7 +54,7 @@ namespace TicTacToe.Game
                         break;
 
                     case LastMoveStatus.PositionOccupied:
-                        MessageWriter.WriteToConsole(Constants.POSITIONOCCUPIED);
+                        MessageWriter.WriteToConsole(result.Message);
                         break;
 
                     case LastMoveStatus.Skipped:

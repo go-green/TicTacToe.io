@@ -5,6 +5,6 @@ namespace TicTacToeGame.Player.Contracts
     internal interface IInputValidationRule
     {
         int RuleID { get; }
-        IMoveResult Validate(string input);
+        IMoveResult Validate();
     }
 }

@@ -21,7 +21,7 @@ namespace TicTacToeGame.Player
 
         public int RuleID => 1;
 
-        public IMoveResult Validate(string input)
+        public IMoveResult Validate()
         {
             if (!string.IsNullOrEmpty(_playerInput)) return _moveResult;
             _moveResult.Message = Constants.INVALIDCORDINATES;
@@ -44,7 +44,7 @@ namespace TicTacToeGame.Player
 
         public int RuleID => 2;
 
-        public IMoveResult Validate(string input)
+        public IMoveResult Validate()
         {
             if (!_playerInput.ToLower().Trim().Equals(SKIPPEDPCODE)) return _moveResult;
             _moveResult.Status = LastMoveStatus.Skipped;
@@ -66,7 +66,7 @@ namespace TicTacToeGame.Player
 
         public int RuleID => 3;
 
-        public IMoveResult Validate(string input)
+        public IMoveResult Validate()
         {
             string[] cordsAsArray;
             try
@@ -98,7 +98,7 @@ namespace TicTacToeGame.Player
 
         public int RuleID => 4;
 
-        public IMoveResult Validate(string input)
+        public IMoveResult Validate()
         {
             if (_playerInput.Split(',').Length == 2) return _moveResult;
             _moveResult.Message = Constants.INVALIDCORDINATES;
@@ -121,7 +121,7 @@ namespace TicTacToeGame.Player
 
         public int RuleID => 5;
 
-        public IMoveResult Validate(string input)
+        public IMoveResult Validate()
         {
             var cordsAsArray = _playerInput.Split(',');
             if (!int.TryParse(cordsAsArray[0], out var x))
@@ -158,7 +158,7 @@ namespace TicTacToeGame.Player
 
         public int RuleID => 7;
 
-        public IMoveResult Validate(string input)
+        public IMoveResult Validate()
         {
             var cordsAsArray = _playerInput.Split(',');
             int.TryParse(cordsAsArray[0], out var x);
@@ -188,7 +188,7 @@ namespace TicTacToeGame.Player
 
         public int RuleID => 6;
 
-        public IMoveResult Validate(string input)
+        public IMoveResult Validate()
         {
             if (GameStatus.Instance.Grid.Cordinates.Count(cord => cord.IsOccupied == false) == 0)
             {
@@ -216,7 +216,7 @@ namespace TicTacToeGame.Player
 
         public int RuleID => 8;
 
-        public IMoveResult Validate(string input)
+        public IMoveResult Validate()
         {
             var cordsAsArray = _playerInput.Split(',');
             int.TryParse(cordsAsArray[0], out var x);
