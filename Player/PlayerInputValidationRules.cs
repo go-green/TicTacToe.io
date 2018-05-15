@@ -193,7 +193,7 @@ namespace TicTacToeGame.Player
         {
             if (GameStatus.Instance.Grid.Cordinates.Count(cord => cord.IsOccupied == false) == 0)
             {
-                GameStatus.Instance.Finished = true;
+                GameStatus.Instance.Draw = true;
                 this._moveResult.Status = LastMoveStatus.AllPositionsOccupied;
                 return this._moveResult;
             }

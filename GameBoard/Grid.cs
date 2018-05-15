@@ -59,6 +59,7 @@ namespace TicTacToe.Board
             if (this._ruleses.Validate(GameStatus.Instance.CurrentPlayer.OccupiedPositions))
             {
                 GameStatus.Instance.Finished = true;
+                return;
             }
 
             if (GameStatus.Instance.Grid.Cordinates.Count(cord => cord.IsOccupied == false) == 0)
