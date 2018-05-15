@@ -56,8 +56,7 @@ namespace TicTacToe.Board
 
         public void Scan()
         {
-            if (GameStatus.Instance.CurrentPlayer.MoveCount == Constants.MAX_ATTEMPT_COUNT &&
-                this._ruleses.Validate(GameStatus.Instance.CurrentPlayer.OccupiedPositions))
+            if (this._ruleses.Validate(GameStatus.Instance.CurrentPlayer.OccupiedPositions))
             {
                 GameStatus.Instance.Finished = true;
             }
