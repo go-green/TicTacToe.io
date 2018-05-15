@@ -60,6 +60,11 @@ namespace TicTacToe.Board
             {
                 GameStatus.Instance.Finished = true;
             }
+
+            if (GameStatus.Instance.Grid.Cordinates.Count(cord => cord.IsOccupied == false) == 0)
+            {
+                GameStatus.Instance.Draw = true;
+            }
         }
 
         public void Draw()

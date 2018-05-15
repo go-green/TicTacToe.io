@@ -35,6 +35,8 @@ namespace TicTacToe.Game
 
         public bool Finished { get; set; }
 
+        public bool Draw { get; set; }
+
         public Grid Grid { get; set; }
     }
 }

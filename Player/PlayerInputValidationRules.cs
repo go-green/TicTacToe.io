@@ -157,7 +157,7 @@ namespace TicTacToeGame.Player
         }
         public int RuleID
         {
-            get => 6;
+            get => 7;
         }
         public IMoveResult Validate(string input)
         {
@@ -179,7 +179,6 @@ namespace TicTacToeGame.Player
     {
         private readonly string _playerInput;
         private readonly IMoveResult _moveResult;
-        public const string ALLPOSITIONSOCCUPIED = "Oh no, All positions occupied...No more moves and the game draws!";
         public GridScanner(string input)
         {
             this._playerInput = input;
@@ -188,14 +187,13 @@ namespace TicTacToeGame.Player
         }
         public int RuleID
         {
-            get => 7;
+            get => 6;
         }
         public IMoveResult Validate(string input)
         {
             if (GameStatus.Instance.Grid.Cordinates.Count(cord => cord.IsOccupied == false) == 0)
             {
                 GameStatus.Instance.Finished = true;
-                this._moveResult.Message = ALLPOSITIONSOCCUPIED;
                 this._moveResult.Status = LastMoveStatus.AllPositionsOccupied;
                 return this._moveResult;
             }

@@ -13,5 +13,6 @@ namespace TicTacToeGame.Game
         public const string YOUWON = "Move accepted, well done you've won the game!";
         public const string INVALIDCORDINATES = "Invalid cordinates provided, Please try again!";
         public const string ENTERCORDINATES = "Player {0} enter a coord x,y to place your {1} or enter 'q' to give up:";
+        public const string ALLPOSITIONSOCCUPIED = "Oh no, All positions occupied...No more moves and the game draws!";
     }
 }

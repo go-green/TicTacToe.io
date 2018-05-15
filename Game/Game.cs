@@ -40,17 +40,15 @@ namespace TicTacToe.Game
         public void Play()
         {
             var playerInput = this._gameStatus.CurrentPlayer.Move();
- 
+
             while (!this._gameStatus.Finished)
             {
                 var result = new PlayerInputParser(playerInput).Parse();
 
                 switch (result.Status)
                 {
-
                     case LastMoveStatus.AllPositionsOccupied:
-                        MessageWriter.WriteToConsole(result.Message);
-                        FinishTheGame(true);
+                        FinishTheGame();
                         break;
 
                     case LastMoveStatus.Accepted:
@@ -76,17 +74,25 @@ namespace TicTacToe.Game
                 }
 
                 playerInput = this._gameStatus.CurrentPlayer.Move();
-            }     
+            }
         }
 
-        private void FinishTheGame(bool draw = false)
+        private void FinishTheGame()
         {
-            if (this._gameStatus.Finished != true) return;
-            if (!draw)
+            if (this._gameStatus.Finished)
             {
                 MessageWriter.WriteToConsole(Constants.YOUWON);
+                StopAndClose();
             }
-            
+            if (this._gameStatus.Draw)
+            {
+                MessageWriter.WriteToConsole(Constants.ALLPOSITIONSOCCUPIED);
+                StopAndClose();
+            }        
+        }
+
+        private void StopAndClose()
+        {
             this._gameBoard.Draw();
             Console.ReadLine();
             Stop();
