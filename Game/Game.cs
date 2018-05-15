@@ -78,9 +78,14 @@ namespace TicTacToe.Game
             }     
         }
 
-        private void FinishTheGame()
+        private void FinishTheGame(bool draw = false)
         {
             if (this._gameStatus.Finished != true) return;
+            if (!draw)
+            {
+                MessageWriter.WriteToConsole(Constants.YOUWON);
+            }
+            
             this._gameBoard.Draw();
             Console.ReadLine();
             Stop();
