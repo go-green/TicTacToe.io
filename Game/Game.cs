@@ -49,7 +49,7 @@ namespace TicTacToe.Game
 
                     case LastMoveStatus.AllPositionsOccupied:
                         MessageWriter.WriteToConsole(result.Message);
-                        FinishTheGame();
+                        FinishTheGame(true);
                         break;
 
                     case LastMoveStatus.Accepted:
