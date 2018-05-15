@@ -17,6 +17,7 @@ namespace TicTacToe.Rules
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private IEnumerable<CordinateSet> _winningCordinateSets;
         private IEnumerable<Cordinate> _userCordinates;
+        public const int MAX_ATTEMPT_COUNT = 3;
 
         public GameRules()
         {
@@ -44,7 +45,7 @@ namespace TicTacToe.Rules
             if (orderedWinningSet.Count() != orderedPlayerSet.Count())
                 return false;
 
-            for (var i = 0; i < Constants.MAX_ATTEMPT_COUNT; i++)
+            for (var i = 0; i < MAX_ATTEMPT_COUNT; i++)
             {
                 try
                 {

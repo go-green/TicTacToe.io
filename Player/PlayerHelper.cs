@@ -7,6 +7,8 @@ namespace TicTacToe.Player
 {
     public static class PlayerHelper
     {
+        public const char PLAYER_O = 'O';
+        public const char PLAYER_X = 'X';
         public static IEnumerable<IPlayer> InitializePlayers()
         {
             return new List<IPlayer>()
@@ -14,12 +16,12 @@ namespace TicTacToe.Player
                 new ManualPlayer()
                 {
                     Id = 1,
-                    Symbol = Constants.PLAYER_X
+                    Symbol = PLAYER_X
                 },
                 new ManualPlayer()
                 {
                     Id = 2,
-                    Symbol = Constants.PLAYER_O
+                    Symbol = PLAYER_O
                 }
             };
         }

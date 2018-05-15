@@ -11,6 +11,7 @@ namespace TicTacToe.Game
     {
         private GameStatus _gameStatus;
         private IGameBoard _gameBoard;
+        public const char DOT = '*';
 
         public void Start()
         {
@@ -27,7 +28,7 @@ namespace TicTacToe.Game
             this._gameStatus.CurrentPlayer = this._gameStatus.Players.FirstOrDefault();
             this._gameStatus.Finished = false;
             this._gameStatus.Grid =
-                new Grid(BoardHelper.InitializeGrid(Constants.GRID_HEIGHT, Constants.GRID_WIDTH, Constants.DOT));
+                new Grid(BoardHelper.InitializeGrid(Constants.GRID_HEIGHT, Constants.GRID_WIDTH, DOT));
             this._gameBoard = new SquareBoard();
         }
 
