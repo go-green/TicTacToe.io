@@ -66,14 +66,16 @@
     <Compile Include="Game\LastMoveStatus.cs" />
     <Compile Include="Game\MessageWriter.cs" />
     <Compile Include="Player\Contracts\IPlayer.cs" />
+    <Compile Include="Player\Contracts\IInputValidationRule.cs" />
+    <Compile Include="Player\Contracts\IMoveResult.cs" />
     <Compile Include="Player\ManualPlayer.cs" />
     <Compile Include="Player\PlayerHelper.cs" />
+    <Compile Include="Player\PlayerInputValidationRules.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Player\RobotPlayer.cs" />
     <Compile Include="GameBoard\SquareBoard.cs" />
     <Compile Include="GameBoard\Cordinate.cs" />
-    <Compile Include="GameBoard\Contracts\ICordinate.cs" />
     <Compile Include="Player\MoveResult.cs" />
     <Compile Include="Player\PlayerInputParser.cs" />
   </ItemGroup>

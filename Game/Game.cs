@@ -46,13 +46,16 @@ namespace TicTacToe.Game
 
                 switch (result.Status)
                 {
+
+                    case LastMoveStatus.AllPositionsOccupied:
+                        MessageWriter.WriteToConsole(result.Message);
+                        FinishTheGame();
+                        break;
+
                     case LastMoveStatus.Accepted:
                         this._gameBoard.Update(result.Cordinate);
                         this._gameBoard.Scan();
-                        if (this._gameStatus.Finished)
-                        {
-                            continue;
-                        }
+                        FinishTheGame();
                         MessageWriter.WriteToConsole(result.Message);
                         this._gameBoard.Draw();
                         SwitchPlayer();
@@ -69,13 +72,15 @@ namespace TicTacToe.Game
                     case LastMoveStatus.Skipped:
                         SwitchPlayer();
                         break;
-                    case LastMoveStatus.NoPlay:
-                        break;
                 }
 
                 playerInput = this._gameStatus.CurrentPlayer.Move();
-            }
-            MessageWriter.WriteToConsole(Constants.YOUWON);
+            }     
+        }
+
+        private void FinishTheGame()
+        {
+            if (this._gameStatus.Finished != true) return;
             this._gameBoard.Draw();
             Console.ReadLine();
             Stop();

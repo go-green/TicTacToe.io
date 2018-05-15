@@ -8,19 +8,19 @@ namespace TicTacToe.Rules
 {
     public class CordinateSet
     {
-        private readonly IList<ICordinate> _line;
+        private readonly IList<Cordinate> _line;
 
         public CordinateSet()
         {
-            this._line = new List<ICordinate>();
+            this._line = new List<Cordinate>();
         }
 
-        public void Add(ICordinate cords)
+        public void Set(Cordinate cords)
         {
             _line.Add(cords);
         }
 
-        public IEnumerable<ICordinate> Get()
+        public IEnumerable<Cordinate> Get()
         {
             return _line;
         }

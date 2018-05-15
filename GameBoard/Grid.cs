@@ -25,12 +25,12 @@ namespace TicTacToe.Board
 
         public IList<Cordinate> Cordinates => _cordinates;
 
-        public bool IsOccupied(ICordinate cords)
+        public bool IsOccupied(Cordinate cords)
         {
             return this._cordinates.Single(x => x.X == cords.X && x.Y == cords.Y).IsOccupied;
         }
 
-        public void Update(ICordinate cords)
+        public void Update(Cordinate cords)
         {
             if (!IsOccupied(cords))
             {
@@ -39,14 +39,14 @@ namespace TicTacToe.Board
             }
         }
 
-        private void UpdateCurrentPlayerStatus(ICordinate cords)
+        private void UpdateCurrentPlayerStatus(Cordinate cords)
         {
             GameStatus.Instance.CurrentPlayer.MoveCount++;
             GameStatus.Instance.CurrentPlayer.OccupiedPositions.Add(cords);
         }
 
 
-        private void UpdateGridStatus(ICordinate cords)
+        private void UpdateGridStatus(Cordinate cords)
         {
             var cordinate = this._cordinates.Single(x => x.X == cords.X && x.Y == cords.Y);
             cordinate.IsOccupied = true;

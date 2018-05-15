@@ -5,10 +5,10 @@ using TicTacToe.Game;
 
 namespace TicTacToe.Player
 {
-    public class MoveResult 
+    public class MoveResult : IMoveResult
     {
         public string Message { get; set; }
-        public ICordinate Cordinate { get; set; }
+        public Cordinate Cordinate { get; set; }
         public LastMoveStatus Status { get; set; }
 
         public MoveResult()

@@ -11,7 +11,9 @@ namespace TicTacToe.Game
         Accepted,
         InvalidCordinates,
         PositionOccupied,
-        NoPlay,  
-        Skipped
+        Skipped,
+        Finished,
+        AllPositionsOccupied,
+        NoPlay
     }
 }

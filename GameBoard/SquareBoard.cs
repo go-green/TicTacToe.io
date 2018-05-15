@@ -28,7 +28,7 @@ namespace TicTacToe.Board
            
         }
 
-        public void Update(ICordinate cords)
+        public void Update(Cordinate cords)
         {
             try
             {

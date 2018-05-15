@@ -10,7 +10,7 @@ namespace TicTacToe.Player
         public char Symbol { get; set; }
         public string Name { get; set; }
         public int MoveCount { get; set; }
-        public IList<ICordinate> OccupiedPositions { get; set; }
+        public IList<Cordinate> OccupiedPositions { get; set; }
 
         public string Move()
         {

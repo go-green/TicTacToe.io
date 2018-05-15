@@ -54,7 +54,7 @@ namespace TicTacToe.Rules
                     X = rowNumber,
                     Y = c
                 };
-                winningCordinates.Add(cords);
+                winningCordinates.Set(cords);
             }
             return winningCordinates;
         }
@@ -70,7 +70,7 @@ namespace TicTacToe.Rules
                         X = r,
                         Y = columnNumber
                     };
-                winningCordinates.Add(cords);
+                winningCordinates.Set(cords);
             }
             return winningCordinates;
         }
@@ -87,7 +87,7 @@ namespace TicTacToe.Rules
             {
                 var cords = set.Get().ToArray()[rowCounter];
                 rowCounter++;
-                winningCordinates.Add(cords);
+                winningCordinates.Set(cords);
             }
             return winningCordinates;
         }
@@ -105,7 +105,7 @@ namespace TicTacToe.Rules
             {
                 var cords = set.Get().ToArray()[rowCounter];
                 rowCounter--;
-                winningCordinates.Add(cords);
+                winningCordinates.Set(cords);
             }
             return winningCordinates;
         }

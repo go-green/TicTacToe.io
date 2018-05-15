@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe.Board
 {
-    public class Cordinate : ICordinate
+    public class Cordinate 
     {
         public Cordinate()
         {

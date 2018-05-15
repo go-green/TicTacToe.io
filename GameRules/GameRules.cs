@@ -16,14 +16,14 @@ namespace TicTacToe.Rules
     {
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private IEnumerable<CordinateSet> _winningCordinateSets;
-        private IEnumerable<ICordinate> _userCordinates;
+        private IEnumerable<Cordinate> _userCordinates;
 
         public GameRules()
         {
             this._winningCordinateSets = new SquareWinningCordinateSetGenerator().GetWinningCordinateSetPermutations();           
         }
 
-        public bool Validate(IEnumerable<ICordinate> userCordinates)
+        public bool Validate(IEnumerable<Cordinate> userCordinates)
         {
             this._userCordinates = userCordinates;
             return _winningCordinateSets.Any(x => CompareWithPlayerCordinates(x.Get()));
@@ -35,7 +35,7 @@ namespace TicTacToe.Rules
         /// </summary>
         /// <param name="enumerable"></param>
         /// <returns></returns>
-        private bool CompareWithPlayerCordinates(IEnumerable<ICordinate> enumerable)
+        private bool CompareWithPlayerCordinates(IEnumerable<Cordinate> enumerable)
         {
             var returnFlag = true;
             var orderedWinningSet = enumerable.OrderBy(x => x.X).ThenBy(y => y.Y).ToArray();

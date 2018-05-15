@@ -7,6 +7,6 @@ namespace TicTacToe.Rule
 {
     public interface IGameRule
     {
-        bool Validate(IEnumerable<ICordinate> cordinates);
+        bool Validate(IEnumerable<Cordinate> cordinates);
     }
 }

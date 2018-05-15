@@ -5,7 +5,7 @@ namespace TicTacToeGame.GameBoard
     interface IGameBoard
     {
         void Draw();
-        void Update(ICordinate cords);
+        void Update(Cordinate cords);
         void Reset();
         void Scan();
     }
